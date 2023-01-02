@@ -4,6 +4,7 @@ package com.example.firebaselogin.ui.login
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -40,34 +41,16 @@ class LoginActivityTest2 {
                             0
                         )
                     ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatEditText.perform(replaceText("etts@gmail.com"), closeSoftKeyboard())
-
-        val appCompatEditText2 = onView(
-            allOf(
-                withId(R.id.password),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.container),
-                        childAtPosition(
-                            withId(android.R.id.content),
-                            0
-                        )
-                    ),
                     1
                 ),
                 isDisplayed()
             )
         )
-        appCompatEditText2.perform(replaceText("1234567889"), closeSoftKeyboard())
+        appCompatEditText.perform(replaceText("test@gmail.com"), closeSoftKeyboard())
 
-        val materialButton = onView(
+        val appCompatEditText2 = onView(
             allOf(
-                withId(R.id.login), withText("Sign in or register"),
+                withId(R.id.password),
                 childAtPosition(
                     allOf(
                         withId(R.id.container),
@@ -81,7 +64,45 @@ class LoginActivityTest2 {
                 isDisplayed()
             )
         )
+        appCompatEditText2.perform(replaceText("123456789"), closeSoftKeyboard())
+
+        pressBack()
+
+        val materialButton = onView(
+            allOf(
+                withId(R.id.login), withText("Sign in or register"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    3
+                ),
+                isDisplayed()
+            )
+        )
         materialButton.perform(click())
+
+        val materialButton2 = onView(
+            allOf(
+                withId(R.id.login), withText("Sign in or register"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    3
+                ),
+                isDisplayed()
+            )
+        )
+        materialButton2.perform(click())
     }
 
     private fun childAtPosition(

@@ -40,7 +40,7 @@ class LoginActivityTest3 {
                             0
                         )
                     ),
-                    0
+                    1
                 ),
                 isDisplayed()
             )
@@ -58,30 +58,12 @@ class LoginActivityTest3 {
                             0
                         )
                     ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatEditText2.perform(replaceText("123456789"), closeSoftKeyboard())
-
-        val materialButton = onView(
-            allOf(
-                withId(R.id.login), withText("Sign in or register"),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.container),
-                        childAtPosition(
-                            withId(android.R.id.content),
-                            0
-                        )
-                    ),
                     2
                 ),
                 isDisplayed()
             )
         )
-        materialButton.perform(click())
+        appCompatEditText2.perform(replaceText("123456789"), closeSoftKeyboard())
     }
 
     private fun childAtPosition(

@@ -115,7 +115,7 @@ class LoginActivity : AppCompatActivity() {
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
-        auth.createUserWithEmailAndPassword("lux5@gmail.com", "123456789")
+        auth.createUserWithEmailAndPassword("luxq@gmail.com", "123456789")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
@@ -137,7 +137,7 @@ class LoginActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("message")
 
-        myRef.setValue("Hello, Monu!")
+        myRef.setValue("Hello, Lux!")
 
         // Read from the database
         // Read from the database

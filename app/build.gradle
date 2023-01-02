@@ -34,6 +34,23 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        managedDevices {
+            devices {
+                device1 (com.android.build.api.dsl.ManagedVirtualDevice) {
+                    device = "Pixel 4 XL"
+                    apiLevel = 30
+                    systemImageSource = "google"
+                }
+                device2 (com.android.build.api.dsl.ManagedVirtualDevice) {
+                    device = "Pixel 5"
+                    apiLevel = 29
+                    systemImageSource = "google"
+                    require64Bit = false
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -51,6 +68,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.1'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
 }
