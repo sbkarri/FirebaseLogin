@@ -6,7 +6,8 @@ plugins {
 
 android {
     namespace 'com.example.firebaselogin'
-    compileSdk 33
+    compileSdkVersion "android-33-ext4"
+
 
     defaultConfig {
         applicationId "com.example.firebaselogin"
