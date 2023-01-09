@@ -115,14 +115,14 @@ class LoginActivity : AppCompatActivity() {
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
-        auth.createUserWithEmailAndPassword("lux5@gmail.com", "123456789")
+        auth.createUserWithEmailAndPassword("lux75@gmail.com", "123456789")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     readFirebaseData()
-                    throw NullPointerException()
+//                    throw NullPointerException()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
