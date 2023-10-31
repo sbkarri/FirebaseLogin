@@ -8,11 +8,8 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
-                  <entry key="6.7_Horizontal_Fold-in_API_33" value="120" />
-                  <entry key="887Y00NVT" value="120" />
-                  <entry key="Android_TV_4K_API_33" value="120" />
                   <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
+                  <entry key="Pixel_3a_API_33_arm64-v8a" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
@@ -24,12 +21,8 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
-                  <entry key="7.6_Fold-in_with_outer_display_API_33" value="120" />
-                  <entry key="887Y00NVT" value="120" />
-                  <entry key="Android_TV_1080p_API_30" value="120" />
                   <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
-                  <entry key="Pixel_6_Pro_API_32" value="120" />
+                  <entry key="Medium_Phone_API_UpsideDownCake" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
@@ -41,13 +34,9 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
-                  <entry key="1C031FDF60099T" value="120" />
-                  <entry key="7.6_Fold-in_with_outer_display_API_33" value="120" />
-                  <entry key="887Y00NVT" value="120" />
-                  <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
-                  <entry key="Google&#10; Pixel 6" value="120" />
-                  <entry key="Tests" value="360" />
+                  <entry key="Duration" value="139" />
+                  <entry key="Pixel_7_Pro_API_UpsideDownCake" value="168" />
+                  <entry key="Tests" value="408" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -58,11 +47,8 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
-                  <entry key="1C031FDF60099T" value="120" />
-                  <entry key="7.4_Rollable_API_32" value="120" />
                   <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 6" value="120" />
-                  <entry key="Pixel_4_API_33_ext_4" value="120" />
+                  <entry key="Pixel_7_Pro_API_UpsideDownCake" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
@@ -74,54 +60,25 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
-                  <entry key="887Y00NVT" value="120" />
                   <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
-                  <entry key="Google&#10; Pixel 6" value="120" />
+                  <entry key="Pixel_7_API_33" value="120" />
+                  <entry key="Pixel_Fold_API_UDCPrivacySandbox" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
           </value>
         </entry>
-        <entry key="-1629143280">
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="1C031FDF60099T" value="120" />
-                  <entry key="887Y00NVT" value="120" />
-                  <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
-                  <entry key="Google&#10; Pixel 6" value="120" />
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-        <entry key="-1629142319">
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="887Y00NVT" value="120" />
-                  <entry key="Duration" value="90" />
-                  <entry key="Google&#10; Pixel 3 XL" value="120" />
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-        <entry key="-1409086234">
+        <entry key="1085317033">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="Google Pixel 2 XL" value="120" />
+                  <entry key="Google Pixel 6" value="120" />
+                  <entry key="Pixel_3a_API_33_arm64-v8a" value="120" />
                   <entry key="Tests" value="360" />
-                  <entry key="Wear_OS_Large_Round_API_30" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>

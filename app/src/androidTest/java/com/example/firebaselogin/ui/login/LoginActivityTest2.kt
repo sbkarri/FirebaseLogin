@@ -4,7 +4,6 @@ package com.example.firebaselogin.ui.login
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -46,9 +45,45 @@ class LoginActivityTest2 {
                 isDisplayed()
             )
         )
-        appCompatEditText.perform(replaceText("test@gmail.com"), closeSoftKeyboard())
+        appCompatEditText.perform(click())
 
         val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.username),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(click())
+
+        val appCompatEditText3 = onView(
+            allOf(
+                withId(R.id.username),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText3.perform(replaceText("tfrtyfr@jygjt.jguygt"), closeSoftKeyboard())
+
+        val appCompatEditText4 = onView(
             allOf(
                 withId(R.id.password),
                 childAtPosition(
@@ -64,9 +99,7 @@ class LoginActivityTest2 {
                 isDisplayed()
             )
         )
-        appCompatEditText2.perform(replaceText("123456789"), closeSoftKeyboard())
-
-        pressBack()
+        appCompatEditText4.perform(replaceText("hgtrytrytr"), closeSoftKeyboard())
 
         val materialButton = onView(
             allOf(

@@ -2,35 +2,41 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
     namespace 'com.example.firebaselogin'
-    compileSdkVersion 33
+    compileSdk 34
 
 
     defaultConfig {
         applicationId "com.example.firebaselogin"
         minSdk 21
-        targetSdk 33
+//        targetSdk 33
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug{
+            crunchPngs false
+        }
         release {
+            crunchPngs false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
@@ -52,6 +58,23 @@ android {
             }
         }
     }
+    testOptions {
+        emulatorSnapshots {
+            // Enables the feature
+            enableForTestFailures = true
+            // The number of snapshots to take. When not specified, we take 2
+            // snapshots by default. After reaching the max number of
+            // snapshots, subsequent assertion failures in a test run do not
+            // generate additional snapshots.
+            // Must >0
+            maxSnapshotsForTestFailures = 2
+        }
+    }
+    packagingOptions {
+        dex {
+            useLegacyPackaging false
+        }
+    }
 }
 
 dependencies {
@@ -59,16 +82,27 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.annotation:annotation:1.4.0'
+//    implementation 'androidx.annotation:annotation:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'com.google.firebase:firebase-database:20.0.5'
-    implementation 'com.google.firebase:firebase-auth:21.0.7'
+//    implementation 'com.google.firebase:firebase-auth:21.0.7'
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.2'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    implementation 'androidx.core:core-ktx:+'
+//    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    annotationProcessor 'androidx.room:room-compiler:2.6.0'
+//    implementation 'androidx.core:core-ktx:+'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    androidTestImplementation 'androidx.test.ext:junit:1.2.0-alpha01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.0-alpha01'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
 }

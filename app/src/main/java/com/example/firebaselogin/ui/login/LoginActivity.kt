@@ -106,7 +106,9 @@ class LoginActivity : AppCompatActivity() {
 
             login.setOnClickListener {
 //                loading.visibility = View.VISIBLE
+                throw RuntimeException("Testing AQI")
                 firebaseData()
+
             }
         }
     }
@@ -115,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
-        auth.createUserWithEmailAndPassword("lux2325@gmail.com", "123456789")
+        auth.createUserWithEmailAndPassword("lux653@gmail.com", "123456789")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
@@ -126,11 +128,12 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Authentication failed. test apply",
                         Toast.LENGTH_SHORT).show()
 //                    throw NullPointerException()
                 }
             }
+        logcat()
     }
 
     private fun readFirebaseData() {
@@ -147,6 +150,8 @@ class LoginActivity : AppCompatActivity() {
                 // whenever data at this location is updated.
                 val value = dataSnapshot.getValue(String::class.java)
                 Log.d(TAG, "Value is: $value")
+
+                throw NullPointerException()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -154,6 +159,15 @@ class LoginActivity : AppCompatActivity() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+
+    }
+
+    fun logcat(){
+        Log.d(TAG, "logcat: debug")
+        Log.e(TAG, "logcat: error")
+        Log.w(TAG, "logcat: warning")
+        Log.i(TAG, "logcat: information")
+        Log.v(TAG, "logcat: verbos")
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {

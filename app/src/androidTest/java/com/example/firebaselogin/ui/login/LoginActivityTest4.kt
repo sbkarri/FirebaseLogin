@@ -46,9 +46,27 @@ class LoginActivityTest4 {
                 isDisplayed()
             )
         )
-        appCompatEditText.perform(replaceText("test"), closeSoftKeyboard())
+        appCompatEditText.perform(click())
 
         val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.username),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(replaceText("gfvdgfdfgdgfgffgdfgfghfgh"), closeSoftKeyboard())
+
+        val appCompatEditText3 = onView(
             allOf(
                 withId(R.id.password),
                 childAtPosition(
@@ -64,9 +82,7 @@ class LoginActivityTest4 {
                 isDisplayed()
             )
         )
-        appCompatEditText2.perform(replaceText("123456789"), closeSoftKeyboard())
-
-        pressBack()
+        appCompatEditText3.perform(replaceText("hgvhfgcfgdhgfgh"), closeSoftKeyboard())
 
         val materialButton = onView(
             allOf(
@@ -85,6 +101,26 @@ class LoginActivityTest4 {
             )
         )
         materialButton.perform(click())
+
+        val materialButton2 = onView(
+            allOf(
+                withId(R.id.login), withText("Sign in or register"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    3
+                ),
+                isDisplayed()
+            )
+        )
+        materialButton2.perform(click())
+
+        pressBack()
     }
 
     private fun childAtPosition(
