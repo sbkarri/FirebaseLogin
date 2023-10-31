@@ -114,6 +114,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun firebaseData() {
+
+        throw RuntimeException("Testing AQI line 118")
+
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
