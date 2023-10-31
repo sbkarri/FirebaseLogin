@@ -115,7 +115,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseData() {
 
-        throw NullPointerException("Testing Null pointer AQI line 120")
+        throw IndexOutOfBoundsException("Index exception AQI line 120")
 
         // Write a message to the database
         // Write a message to the database
