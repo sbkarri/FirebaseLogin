@@ -106,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
 
             login.setOnClickListener {
 //                loading.visibility = View.VISIBLE
-                throw RuntimeException("Testing AQI")
+//                throw RuntimeException("Testing AQI")
                 firebaseData()
 
             }
@@ -130,7 +130,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed. test apply",
                         Toast.LENGTH_SHORT).show()
-//                    throw NullPointerException()
+                    throw NullPointerException()
                 }
             }
         logcat()
