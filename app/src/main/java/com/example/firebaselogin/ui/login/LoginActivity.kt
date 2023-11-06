@@ -120,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseData() {
 
-        throw IndexOutOfBoundsException("SQL exception AQI line 120")
+        throw SQLiteOutOfMemoryException("SQL exception AQI line 120")
 
         // Write a message to the database
         // Write a message to the database
