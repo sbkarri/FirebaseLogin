@@ -1,6 +1,7 @@
 package com.example.firebaselogin.ui.login
 
 import android.app.Activity
+import android.database.sqlite.SQLiteOutOfMemoryException
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -110,17 +111,21 @@ class LoginActivity : AppCompatActivity() {
                 firebaseData()
 
             }
+
+            binding.button2!!.setOnClickListener {
+                firebaseData()
+            }
         }
     }
 
     private fun firebaseData() {
 
-        throw IndexOutOfBoundsException("Index exception AQI line 120")
+        throw IndexOutOfBoundsException("SQL exception AQI line 120")
 
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
-        auth.createUserWithEmailAndPassword("lux653@gmail.com", "123456789")
+        auth.createUserWithEmailAndPassword("lux623@gmail.com", "123456789")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
@@ -133,7 +138,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed. test apply",
                         Toast.LENGTH_SHORT).show()
-                    throw NullPointerException()
+//                    throw NullPointerException()
                 }
             }
         logcat()
@@ -154,7 +159,7 @@ class LoginActivity : AppCompatActivity() {
                 val value = dataSnapshot.getValue(String::class.java)
                 Log.d(TAG, "Value is: $value")
 
-                throw NullPointerException()
+//                throw NullPointerException()
             }
 
             override fun onCancelled(error: DatabaseError) {
