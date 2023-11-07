@@ -120,8 +120,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseData() {
 
-        val k = 10/0
-
+//        val k = 10/0
+        var k: String? = null
+        k!!.length
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
