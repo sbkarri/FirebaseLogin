@@ -1,7 +1,6 @@
 package com.example.firebaselogin.ui.login
 
 import android.app.Activity
-import android.database.sqlite.SQLiteOutOfMemoryException
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -26,7 +25,6 @@ import com.google.firebase.ktx.Firebase
 
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
     var TAG = "LoginActivity"
@@ -81,8 +79,10 @@ class LoginActivity : AppCompatActivity() {
 
         username.afterTextChanged {
             loginViewModel.loginDataChanged(
-                username.text.toString(),
-                password.text.toString()
+                username.text.toString().trim(),
+                password.text.toString(),
+                "Test String",
+                "Test STring 2 "
             )
         }
 
@@ -90,7 +90,9 @@ class LoginActivity : AppCompatActivity() {
             afterTextChanged {
                 loginViewModel.loginDataChanged(
                     username.text.toString(),
-                    password.text.toString()
+                    password.text.toString(),
+                    "Test String",
+                    "Test STring 2"
                 )
             }
 
@@ -99,7 +101,8 @@ class LoginActivity : AppCompatActivity() {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
                             username.text.toString(),
-                            password.text.toString()
+                            password.text.toString(),
+                            "Test String1"
                         )
                 }
                 false
@@ -112,20 +115,20 @@ class LoginActivity : AppCompatActivity() {
 
             }
 
-            binding.button2!!.setOnClickListener {
+            /*binding.button2!!.setOnClickListener {
                 firebaseData()
-            }
+            }*/
         }
     }
 
     private fun firebaseData() {
 
-        val k = 10/0
+//        val k = 10/0
 
         // Write a message to the database
         // Write a message to the database
         // Initialize Firebase Auth
-        auth.createUserWithEmailAndPassword("lux623@gmail.com", "123456789")
+        auth.createUserWithEmailAndPassword("lux7823@gmail.com", "123456789")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
@@ -138,7 +141,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed. test apply",
                         Toast.LENGTH_SHORT).show()
-//                    throw NullPointerException()
+                    throw NullPointerException()
                 }
             }
         logcat()

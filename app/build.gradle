@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.ManagedVirtualDevice
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -8,7 +10,6 @@ plugins {
 android {
     namespace 'com.example.firebaselogin'
     compileSdk 34
-
 
     defaultConfig {
         applicationId "com.example.firebaselogin"
@@ -25,7 +26,7 @@ android {
         debug{
             crunchPngs false
             vcsInfo {
-                true
+                include true
             }
         }
         release {
@@ -47,7 +48,7 @@ android {
     testOptions {
         managedDevices {
             devices {
-                device1 (com.android.build.api.dsl.ManagedVirtualDevice) {
+                device1 (ManagedVirtualDevice) {
                     device = "Pixel 4 XL"
                     apiLevel = 30
                     systemImageSource = "google"
