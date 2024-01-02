@@ -7,12 +7,11 @@ plugins {
 
 android {
     namespace 'com.example.firebaselogin'
-    compileSdk 34
-
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.firebaselogin"
-        minSdk 21
+        minSdk 23
 //        targetSdk 33
         versionCode 3
         versionName "1.0.2"
@@ -24,9 +23,9 @@ android {
     buildTypes {
         debug{
             crunchPngs false
-            vcsInfo {
-                true
-            }
+            /*vcsInfo {
+                include true
+            }*/
         }
         release {
             crunchPngs false
@@ -44,46 +43,17 @@ android {
     buildFeatures {
         viewBinding true
     }
-    testOptions {
-        managedDevices {
-            devices {
-                device1 (com.android.build.api.dsl.ManagedVirtualDevice) {
-                    device = "Pixel 4 XL"
-                    apiLevel = 30
-                    systemImageSource = "google"
-                }
-                device2 (com.android.build.api.dsl.ManagedVirtualDevice) {
-                    device = "Pixel 5"
-                    apiLevel = 29
-                    systemImageSource = "google"
-                    require64Bit = false
-                }
-            }
-        }
-    }
-    testOptions {
-        emulatorSnapshots {
-            // Enables the feature
-            enableForTestFailures = true
-            // The number of snapshots to take. When not specified, we take 2
-            // snapshots by default. After reaching the max number of
-            // snapshots, subsequent assertion failures in a test run do not
-            // generate additional snapshots.
-            // Must >0
-            maxSnapshotsForTestFailures = 2
-        }
-    }
     packagingOptions {
         dex {
             useLegacyPackaging false
         }
     }
-    flavorDimensions 'variant1'
+/*    flavorDimensions 'variant1'
     productFlavors {
         variant1flavor {
             dimension 'variant1'
         }
-    }
+    }*/
 }
 
 dependencies {

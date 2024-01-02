@@ -16,23 +16,22 @@ import androidx.test.filters.LargeTest
 import com.example.firebaselogin.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.CompletableFuture.allOf
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class LoginActivityTest {
+class LoginActivityTest13 {
 
     @Rule
     @JvmField
     var mActivityScenarioRule = ActivityScenarioRule(LoginActivity::class.java)
 
-    /*@Test
-    fun loginActivityTest() {
+    @Test
+    fun loginActivityTest13() {
         val appCompatEditText = onView(
             allOf(
                 withId(R.id.username),
@@ -52,24 +51,6 @@ class LoginActivityTest {
         appCompatEditText.perform(click())
 
         val appCompatEditText2 = onView(
-            Matchers.allOf(
-                withId(R.id.username),
-                childAtPosition(
-                    Matchers.allOf(
-                        withId(R.id.container),
-                        childAtPosition(
-                            withId(android.R.id.content),
-                            0
-                        )
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatEditText2.perform(click())
-
-        val appCompatEditText3 = onView(
             allOf(
                 withId(R.id.username),
                 childAtPosition(
@@ -85,9 +66,9 @@ class LoginActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText3.perform(replaceText("test@gmail.comxfvhjjmkjhh"), closeSoftKeyboard())
+        appCompatEditText2.perform(replaceText("rewsdfgfg"), closeSoftKeyboard())
 
-        val appCompatEditText4 = onView(
+        val appCompatEditText3 = onView(
             allOf(
                 withId(R.id.password),
                 childAtPosition(
@@ -103,7 +84,7 @@ class LoginActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText4.perform(replaceText("efbetbrtnry"), closeSoftKeyboard())
+        appCompatEditText3.perform(replaceText("rerdfgcfgvfghjj"), closeSoftKeyboard())
 
         val materialButton = onView(
             allOf(
@@ -140,5 +121,5 @@ class LoginActivityTest {
                         && view == parent.getChildAt(position)
             }
         }
-    }*/
+    }
 }

@@ -4,6 +4,7 @@ package com.example.firebaselogin.ui.login
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -16,23 +17,22 @@ import androidx.test.filters.LargeTest
 import com.example.firebaselogin.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.CompletableFuture.allOf
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class LoginActivityTest {
+class LoginActivityTest9 {
 
     @Rule
     @JvmField
     var mActivityScenarioRule = ActivityScenarioRule(LoginActivity::class.java)
 
-    /*@Test
-    fun loginActivityTest() {
+    @Test
+    fun loginActivityTest9() {
         val appCompatEditText = onView(
             allOf(
                 withId(R.id.username),
@@ -52,10 +52,10 @@ class LoginActivityTest {
         appCompatEditText.perform(click())
 
         val appCompatEditText2 = onView(
-            Matchers.allOf(
+            allOf(
                 withId(R.id.username),
                 childAtPosition(
-                    Matchers.allOf(
+                    allOf(
                         withId(R.id.container),
                         childAtPosition(
                             withId(android.R.id.content),
@@ -85,7 +85,7 @@ class LoginActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText3.perform(replaceText("test@gmail.comxfvhjjmkjhh"), closeSoftKeyboard())
+        appCompatEditText3.perform(replaceText("t"), closeSoftKeyboard())
 
         val appCompatEditText4 = onView(
             allOf(
@@ -103,11 +103,11 @@ class LoginActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText4.perform(replaceText("efbetbrtnry"), closeSoftKeyboard())
+        appCompatEditText4.perform(replaceText("jtzjfz"), closeSoftKeyboard())
 
-        val materialButton = onView(
+        val appCompatEditText5 = onView(
             allOf(
-                withId(R.id.login), withText("Sign in or register"),
+                withId(R.id.username), withText("t"),
                 childAtPosition(
                     allOf(
                         withId(R.id.container),
@@ -116,12 +116,106 @@ class LoginActivityTest {
                             0
                         )
                     ),
-                    3
+                    1
                 ),
                 isDisplayed()
             )
         )
-        materialButton.perform(click())
+        appCompatEditText5.perform(replaceText("fuf"))
+
+        val appCompatEditText6 = onView(
+            allOf(
+                withId(R.id.username), withText("fuf"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText6.perform(closeSoftKeyboard())
+
+        pressBack()
+
+        val appCompatEditText7 = onView(
+            allOf(
+                withId(R.id.username), withText("fuf"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText7.perform(replaceText("fufyfy"))
+
+        val appCompatEditText8 = onView(
+            allOf(
+                withId(R.id.username), withText("fufyfy"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText8.perform(closeSoftKeyboard())
+
+        pressBack()
+
+        val appCompatEditText9 = onView(
+            allOf(
+                withId(R.id.username), withText("fufyfy"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText9.perform(replaceText("fufyfyfyf"))
+
+        val appCompatEditText10 = onView(
+            allOf(
+                withId(R.id.username), withText("fufyfyfyf"),
+                childAtPosition(
+                    allOf(
+                        withId(R.id.container),
+                        childAtPosition(
+                            withId(android.R.id.content),
+                            0
+                        )
+                    ),
+                    1
+                ),
+                isDisplayed()
+            )
+        )
+        appCompatEditText10.perform(closeSoftKeyboard())
     }
 
     private fun childAtPosition(
@@ -140,5 +234,5 @@ class LoginActivityTest {
                         && view == parent.getChildAt(position)
             }
         }
-    }*/
+    }
 }
