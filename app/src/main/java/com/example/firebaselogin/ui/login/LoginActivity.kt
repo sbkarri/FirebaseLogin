@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
                 username.text.toString().trim(),
                 password.text.toString(),
                 "Test String",
-                "Test STring 2 "
+                "Test test1"
             )
         }
 
