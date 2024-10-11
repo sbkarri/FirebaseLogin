@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.ManagedVirtualDevice
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -7,11 +9,11 @@ plugins {
 
 android {
     namespace 'com.example.firebaselogin'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.firebaselogin"
-        minSdk 23
+        minSdk 21
 //        targetSdk 33
         versionCode 3
         versionName "1.0.2"
@@ -23,9 +25,9 @@ android {
     buildTypes {
         debug{
             crunchPngs false
-            /*vcsInfo {
+            vcsInfo {
                 include true
-            }*/
+            }
         }
         release {
             crunchPngs false
@@ -43,17 +45,46 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        managedDevices {
+            devices {
+                device1 (ManagedVirtualDevice) {
+                    device = "Pixel 4 XL"
+                    apiLevel = 30
+                    systemImageSource = "google"
+                }
+                device2 (com.android.build.api.dsl.ManagedVirtualDevice) {
+                    device = "Pixel 5"
+                    apiLevel = 29
+                    systemImageSource = "google"
+                    require64Bit = false
+                }
+            }
+        }
+    }
+    testOptions {
+        emulatorSnapshots {
+            // Enables the feature
+            enableForTestFailures = true
+            // The number of snapshots to take. When not specified, we take 2
+            // snapshots by default. After reaching the max number of
+            // snapshots, subsequent assertion failures in a test run do not
+            // generate additional snapshots.
+            // Must >0
+            maxSnapshotsForTestFailures = 2
+        }
+    }
     packagingOptions {
         dex {
             useLegacyPackaging false
         }
     }
-/*    flavorDimensions 'variant1'
+    flavorDimensions 'variant1'
     productFlavors {
         variant1flavor {
             dimension 'variant1'
         }
-    }*/
+    }
 }
 
 dependencies {
