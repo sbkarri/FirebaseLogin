@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.firebaselogin.R
+import com.example.firebaselogin.data.LoginDataSource
+import com.example.firebaselogin.data.model.LoggedInUser
 import com.example.firebaselogin.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -74,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            finish()
+//            finish()
         })
 
         username.afterTextChanged {
@@ -171,6 +173,58 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun getBookingInfo(bookingId: String) {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("message")
+        val loginDataSource = LoggedInUser()
+        val messagesRef =
+            myRef.child("Booking").child("Rides")
+                .child(bookingId)
+        messagesRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("loginDataSource", "Is loginDataSource bookingNumber value? loginDataSource?.bookingNumber")
+                Log.d("loginDataSource", "Is loginDataSource ride status? loginDataSource?.rideStatus")
+                Log.d("loginDataSource", "ride status? ride_status")
+
+                val map = (snapshot.value as? HashMap<*, *>)
+                val model = snapshot.child("driverId").getValue(LoginDataSource::class.java)
+
+                // For the first time fcm will be null
+                if (loginDataSource == null){
+                    Log.d("loginDataSource", "FCM Null")
+                }
+                else {
+                    Log.d("loginDataSource", "FCM Non Null")
+                    if (loginDataSource?.orderId != null) { // To avoid dummy data. Only if order is available, will display the data.
+                        // Once the ride data is added, it will not be null
+                        // From the second time onwards, for same booking id, unless the status changes, should not load the data again.
+                        if (loginDataSource != null && loginDataSource?.bookingNumber == bookingId && loginDataSource?.rideStatus != null) {
+                            Log.d("loginDataSource", "Update Data called")
+                        }
+                        // For a new request booking id will be changed.
+                        else if (loginDataSource?.bookingNumber != bookingId) {
+                            Log.d("loginDataSource", "FCM new booking")
+                        }
+
+                        // Sometimes the data is not loading correctly, so based on condition popup is showing
+                        if (loginDataSource?.bookingNumber != null && loginDataSource?.rideStatus != "RIDE_CANCELLED" && loginDataSource?.rideStatus != "PAYMENT_COMPLETED" &&
+                            loginDataSource?.rideStatus != "REJECTED"
+                        ) {
+                            Log.d("loginDataSource", "UI manually rendered")
+                        }
+                    } else {
+                        Log.d("loginDataSource", "FCM Disabled")
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@LoginActivity, "Failed", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     fun logcat(){
